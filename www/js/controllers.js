@@ -116,7 +116,7 @@ $http.get(urlShowJson).success( function(data) {
 
 .controller('ProfileCtrl', function($scope, $state, $ionicPopup) {
    $scope.goHome = function(res) {
-    $state.go('app.playlists');
+    $state.go('app.search');
   };
   $scope.showConfirm = function() {
    var confirmPopup = $ionicPopup.confirm({
@@ -138,10 +138,12 @@ $http.get(urlShowJson).success( function(data) {
 
 .controller('SplashController', function($scope, $stateParams) {})
 
+.controller('SearchCtrl', function($scope){})
+
 .controller('LoginCtrl', function($scope, $state) {
 
   $scope.LogIn = function(user) {
-    $state.go('app.playlists');
+    $state.go('app.search');
   };
 
 });

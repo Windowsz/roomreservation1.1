@@ -70,12 +70,22 @@ angular.module('starter', ['ionic','starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+    // .state('app.playlists', {
+    //   url: "/playlists",
+    //   views: {
+    //     'menuContent': {
+    //       templateUrl: "templates/playlists.html",
+    //       controller: 'PlaylistsCtrl'
+    //     }
+    //   }
+    // })
+
+    .state('app.search', {
+      url: "/search",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/search.html",
+          controller: 'SearchCtrl'
         }
       }
     })
