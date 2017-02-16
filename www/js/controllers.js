@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('PlaylistsCtrl', function($scope, $http) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -33,7 +33,117 @@ angular.module('starter.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+var urlShowJson = "http://localhost:3000/showJson";
+$http.get(urlShowJson).success( function(data) {
+   $scope.ALL =  data;
+   // console.log("Review get  Opject: ", response, status);
+  console.log(data);
+});
+
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('AppCtrl', function($scope) {})
+
+.controller('PlaylistsCtrl', function($scope, $ionicPopup, $timeout, $http) {
+
+var urlShowJson = "http://localhost:3000/showJson";
+$http.get(urlShowJson).success( function(data) {
+   $scope.ALL =  data;
+  console.log(data);
 });
+
+
+  // $scope.playlists = [{
+  //   title: 'item 1',
+  //   id: 1
+  // }, {
+  //   title: 'Chill',
+  //   id: 2
+  // }, {
+  //   title: 'Dubstep',
+  //   id: 3
+  // }, {
+  //   title: 'Indie',
+  //   id: 4
+  // }, {
+  //   title: 'Rap',
+  //   id: 5
+  // }, {
+  //   title: 'Cowbell',
+  //   id: 6
+  // }];
+})
+
+.controller('ForgotpassCtrl', function($scope, $stateParams) {})
+
+.controller('RegchooseCtrl', function($scope, $stateParams) {})
+
+.controller('Reg1Ctrl', function($scope, $state,  $ionicPopup) {
+   $scope.showAlert = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: '',
+     template: 'สมัครสมาชิกเสร็จเรียบร้อย'
+   });
+
+   alertPopup.then(function(res) {
+     $state.go('login');
+   });
+ };
+  $scope.cancel = function() {
+    $state.go('login');
+  };
+})
+
+.controller('Reg2Ctrl', function($scope, $state, $ionicPopup) {
+  $scope.showAlert = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: '',
+     template: 'สมัครสมาชิกเสร็จเรียบร้อย'
+   });
+
+   alertPopup.then(function(res) {
+     $state.go('login');
+   });
+ };
+ $scope.canCel = function() {
+    $state.go('login');
+  };
+})
+
+.controller('ProfileCtrl', function($scope, $state, $ionicPopup) {
+   $scope.goHome = function(res) {
+    $state.go('app.playlists');
+  };
+  $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm({
+     title: '',
+     template: 'ยืนยันการแก้ไข'
+   });
+
+   confirmPopup.then(function(res) {
+     if(res) {
+       console.log('You are sure');
+     } else {
+       console.log('You are not sure');
+     }
+   });
+ };
+})
+
+.controller('PlaylistCtrl', function($scope, $stateParams) {})
+
+.controller('SplashController', function($scope, $stateParams) {})
+
+.controller('LoginCtrl', function($scope, $state) {
+
+  $scope.LogIn = function(user) {
+    $state.go('app.playlists');
+  };
+
+});
+
+

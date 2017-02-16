@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic','starter.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -28,19 +28,6 @@ angular.module('starter', ['ionic'])
     templateUrl: 'templates/reg2.html',
     controller: 'Reg2Ctrl'
   })
-
-
-    .state('detailroom', {
-    url: '/detailroom',
-    templateUrl: 'templates/detailroom.html',
-    controller: 'DetailroomCtrl'
-  })
-
-     .state('regconfirm', {
-     url: '/regconfirm',
-     templateUrl: 'templates/regconfirm.html',
-     controller: 'RegconfirmCtrl'
-   })
 
   .state('forgotpass', {
     url: '/forgotpass',
@@ -97,8 +84,18 @@ angular.module('starter', ['ionic'])
     url: "/playlists/:playlistId",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
+        templateUrl: "templates/detailroom.html",
         controller: 'PlaylistCtrl'
+      }
+    }
+  })
+
+  .state('app.comfirm', {
+    url: "/playlists/:playlistId/confirm",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/confirm.html",
+        controller: 'ConfirmCtrl'
       }
     }
   })
@@ -121,98 +118,4 @@ angular.module('starter', ['ionic'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
-})
-
-
-.controller('AppCtrl', function($scope) {})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [{
-    title: 'item 1',
-    id: 1
-  }, {
-    title: 'Chill',
-    id: 2
-  }, {
-    title: 'Dubstep',
-    id: 3
-  }, {
-    title: 'Indie',
-    id: 4
-  }, {
-    title: 'Rap',
-    id: 5
-  }, {
-    title: 'Cowbell',
-    id: 6
-  }];
-})
-
-.controller('ForgotpassCtrl', function($scope, $stateParams) {})
-
-.controller('RegchooseCtrl', function($scope, $stateParams) {})
-
-.controller('Reg1Ctrl', function($scope, $state,  $ionicPopup) {
-   $scope.showAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: '',
-     template: 'สมัครสมาชิกเสร็จเรียบร้อย'
-   });
-
-   alertPopup.then(function(res) {
-     $state.go('login');
-   });
- };
-  $scope.cancel = function() {
-    $state.go('login');
-  };
-})
-
-.controller('Reg2Ctrl', function($scope, $state, $ionicPopup) {
-  $scope.showAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: '',
-     template: 'สมัครสมาชิกเสร็จเรียบร้อย'
-   });
-
-   alertPopup.then(function(res) {
-     $state.go('login');
-   });
- };
- $scope.canCel = function() {
-    $state.go('login');
-  };
-})
-
-.controller('ProfileCtrl', function($scope, $state, $ionicPopup) {
-   $scope.goHome = function(res) {
-    $state.go('app.playlists');
-  };
-  $scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.confirm({
-     title: '',
-     template: 'ยืนยันการแก้ไข'
-   });
-
-   confirmPopup.then(function(res) {
-     if(res) {
-       console.log('You are sure');
-     } else {
-       console.log('You are not sure');
-     }
-   });
- };
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {})
-
-.controller('SplashController', function($scope, $stateParams) {})
-
-.controller('LoginCtrl', function($scope, $state) {
-
-  $scope.LogIn = function(user) {
-    $state.go('app.playlists');
-  };
-
 });
-
