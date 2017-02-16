@@ -25,14 +25,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistsCtrl', function($scope, $http) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+  // $scope.playlists = [
+  //   { title: 'Reggae', id: 1 },
+  //   { title: 'Chill', id: 2 },
+  //   { title: 'Dubstep', id: 3 },
+  //   { title: 'Indie', id: 4 },
+  //   { title: 'Rap', id: 5 },
+  //   { title: 'Cowbell', id: 6 }
+  // ];
 var urlShowJson = "http://localhost:3000/showJson";
 $http.get(urlShowJson).success( function(data) {
    $scope.ALL =  data;
@@ -48,13 +48,13 @@ $http.get(urlShowJson).success( function(data) {
 
 .controller('AppCtrl', function($scope) {})
 
-.controller('PlaylistsCtrl', function($scope, $ionicPopup, $timeout, $http) {
+// .controller('PlaylistsCtrl', function($scope, $ionicPopup, $timeout, $http) {
 
-var urlShowJson = "http://localhost:3000/showJson";
-$http.get(urlShowJson).success( function(data) {
-   $scope.ALL =  data;
-  console.log(data);
-});
+// var urlShowJson = "http://localhost:3000/showJson";
+// $http.get(urlShowJson).success( function(data) {
+//    $scope.ALL =  data;
+//   console.log(data);
+// });
 
 
   // $scope.playlists = [{
@@ -76,7 +76,7 @@ $http.get(urlShowJson).success( function(data) {
   //   title: 'Cowbell',
   //   id: 6
   // }];
-})
+//})
 
 .controller('ForgotpassCtrl', function($scope, $stateParams) {})
 
