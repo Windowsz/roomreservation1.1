@@ -43,8 +43,8 @@ $http.get(urlShowJson).success( function(data) {
 
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
+// .controller('PlaylistCtrl', function($scope, $stateParams) {
+// })
 
 .controller('AppCtrl', function($scope) {})
 
@@ -138,7 +138,11 @@ $http.get(urlShowJson).success( function(data) {
 
 .controller('SplashController', function($scope, $stateParams) {})
 
-.controller('SearchCtrl', function($scope){})
+.controller('SearchCtrl', function($scope , $state){
+  $scope.searching = function(res) {
+    $state.go('playlists');
+  };
+})
 
 .controller('LoginCtrl', function($scope, $state) {
 

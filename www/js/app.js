@@ -11,6 +11,14 @@ angular.module('starter', ['ionic','starter.controllers'])
     controller: 'AppCtrl'
   })
 
+  .state('playlists', {
+    url: "/playlists",
+    templateUrl: "templates/playlists.html",
+    controller: 'PlaylistsCtrl'
+  })
+
+
+
   .state('regchoose', {
     url: '/regchoose',
     templateUrl: 'templates/regchoose.html',
@@ -70,15 +78,6 @@ angular.module('starter', ['ionic','starter.controllers'])
         }
       }
     })
-    // .state('app.playlists', {
-    //   url: "/playlists",
-    //   views: {
-    //     'menuContent': {
-    //       templateUrl: "templates/playlists.html",
-    //       controller: 'PlaylistsCtrl'
-    //     }
-    //   }
-    // })
 
     .state('app.search', {
       url: "/search",
