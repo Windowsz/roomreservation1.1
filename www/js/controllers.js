@@ -140,7 +140,7 @@ $http.get(urlShowJson).success( function(data) {
 
 .controller('SearchCtrl', function($scope , $state){
   $scope.searching = function(res) {
-    $state.go('playlists');
+    $state.go('app.single');
   };
 })
 
